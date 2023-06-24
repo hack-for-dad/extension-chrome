@@ -37,3 +37,16 @@ setInterval(() => {
         iframe.src = chrome.runtime.getURL("/assets/sansern.webm");
     });
 }, 1000);
+
+// ========================
+// Replace all audios
+// ========================
+
+setInterval(() => {
+    document.querySelectorAll("audio").forEach(function(audio) {
+        if (audio.src.startsWith("chrome-extension://")) return;
+        // Replace video
+        audio.src = chrome.runtime.getURL("/assets/sansern.webm");
+    });
+});
+
