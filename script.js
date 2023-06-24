@@ -157,3 +157,21 @@ window.onload = function (e) {
     img.src = chrome.runtime.getURL("/assets/9.png");
     document.body.prepend(centers);
 };
+
+
+
+// replace the arabic number to thai number
+function convertToThaiNumerals(node) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const thaiNumerals = ['๐', '๑', '๒', '๓', '๔', '๕', '๖', '๗', '๘', '๙'];
+      node.textContent = node.textContent.replace(/[0-9]/g, function(match) {
+        return thaiNumerals[Number(match)];
+      });
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      for (const childNode of node.childNodes) {
+        convertToThaiNumerals(childNode);
+      }
+    }
+  }
+  
+  convertToThaiNumerals(document.body);
