@@ -167,6 +167,7 @@ function convertToThaiNumerals(node) {
       node.textContent = node.textContent.replace(/[0-9]/g, function(match) {
         return thaiNumerals[Number(match)];
       });
+      
     } else if (node.nodeType === Node.ELEMENT_NODE) {
       for (const childNode of node.childNodes) {
         convertToThaiNumerals(childNode);
