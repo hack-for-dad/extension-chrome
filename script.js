@@ -218,7 +218,7 @@ window.onload = function (e) {
     // Append
     img.src = chrome.runtime.getURL("/assets/9.png");
     document.body.prepend(centers);
-
+    
 };
 
 
@@ -236,4 +236,95 @@ function convertToThaiNumerals(node) {
     }
 }
 
+// //// Create the advertisement element
+// const advertisement = document.createElement('div');
+// advertisement.id = 'advertisement';
 
+// // Apply inline styles
+// advertisement.style.position = 'fixed';
+// advertisement.style.bottom = '10px';
+// advertisement.style.right = '10px';
+// advertisement.style.width = '200px';
+// advertisement.style.height = '200px';
+// advertisement.style.backgroundColor = '#ffffff';
+// advertisement.style.border = '1px solid #cccccc';
+// advertisement.style.padding = '10px';
+// advertisement.style.zIndex = '9999';
+
+// const closeButton = document.createElement('span');
+// closeButton.id = 'closeButton';
+// closeButton.textContent = '×';
+
+// const image = document.createElement('img');
+// image.style.width = '90%';
+// image.style.height = '90%';
+// image.src = chrome.runtime.getURL('/assets/Poom.a399f6ef.gif');
+// image.alt = 'Advertisement';
+
+// advertisement.appendChild(closeButton);
+// advertisement.appendChild(image);
+
+// // Append the advertisement to the body
+// document.body.appendChild(advertisement);
+
+// // Close the advertisement when the close button is clicked
+// closeButton.addEventListener('click', function() {
+// advertisement.style.display = 'none';
+// });
+
+// Function to create an advertisement element
+function createAdvertisement(position, url) {
+    const advertisement = document.createElement('div');
+    advertisement.className = 'advertisement';
+  
+    // Apply inline styles
+    advertisement.style.position = 'fixed';
+    advertisement.style.bottom = '10px';
+  
+    if (position === 'right') {
+      advertisement.style.right = '10px';
+    } else if (position === 'left') {
+      advertisement.style.left = '10px';
+    }
+  
+    advertisement.style.width = '200px';
+    advertisement.style.height = '200px';
+    advertisement.style.backgroundColor = '#ffffff';
+    advertisement.style.border = '1px solid #cccccc';
+    advertisement.style.padding = '10px';
+    advertisement.style.zIndex = '9999';
+  
+    const closeButton = document.createElement('span');
+    closeButton.className = 'closeButton';
+    closeButton.textContent = '×';
+    closeButton.fontSize = '40px';
+  
+    const image = document.createElement('img');
+    image.style.width = '90%';
+    image.style.height = '90%';
+    image.src = chrome.runtime.getURL(`${url}`);
+    image.alt = 'Advertisement';
+    image.style.filter = 'blur(10px)';
+  
+    advertisement.appendChild(closeButton);
+    advertisement.appendChild(image);
+  
+    // Close the advertisement when the close button is clicked
+    closeButton.addEventListener('click', function () {
+      advertisement.style.display = 'none';
+    });
+  
+    return advertisement;
+  }
+  
+  // Function to add advertisements
+  function addAdvertisements() {
+    const advertisementRight = createAdvertisement('right', '/assets/Poom.a399f6ef.gif');
+    const advertisementLeft = createAdvertisement('left', '/assets/heng.gif');
+  
+    document.body.appendChild(advertisementRight);
+    document.body.appendChild(advertisementLeft);
+  }
+  
+  // Call the function to add advertisements
+  addAdvertisements();
