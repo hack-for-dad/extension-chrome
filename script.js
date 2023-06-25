@@ -288,39 +288,25 @@ function createAdvertisement(position, url) {
     }
   
     advertisement.style.width = '200px';
-    advertisement.style.height = '200px';
+    advertisement.style.height = '150px';
     advertisement.style.backgroundColor = '#ffffff';
     advertisement.style.border = '1px solid #cccccc';
-    advertisement.style.padding = '10px';
     advertisement.style.zIndex = '9999';
   
-    const closeButton = document.createElement('span');
-    closeButton.className = 'closeButton';
-    closeButton.textContent = '×';
-    closeButton.fontSize = '40px';
-  
     const image = document.createElement('img');
-    image.style.width = '90%';
-    image.style.height = '90%';
+    image.style.width = '100%';
+    image.style.height = '100%';
     image.src = chrome.runtime.getURL(`${url}`);
     image.alt = 'Advertisement';
-    image.style.filter = 'blur(10px)';
-  
-    advertisement.appendChild(closeButton);
+
     advertisement.appendChild(image);
-  
-    // Close the advertisement when the close button is clicked
-    closeButton.addEventListener('click', function () {
-      advertisement.style.display = 'none';
-    });
-  
     return advertisement;
   }
   
   // Function to add advertisements
   function addAdvertisements() {
     const advertisementRight = createAdvertisement('right', '/assets/Poom.a399f6ef.gif');
-    const advertisementLeft = createAdvertisement('left', '/assets/heng.gif');
+    const advertisementLeft = createAdvertisement('left', '/assets/Poom.a399f6ef.gif');
   
     document.body.appendChild(advertisementRight);
     document.body.appendChild(advertisementLeft);
