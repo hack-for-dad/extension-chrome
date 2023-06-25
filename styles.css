@@ -5,3 +5,7 @@
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
 }
+
+้html, body, div {
+    background-color: #cbcb00;
+}
