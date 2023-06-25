@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "ส่วนเสริมสำหรับพ่อหลวง",
-  "version": "0.0.0.1",
+  "version": "1.0.0",
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
@@ -9,6 +9,10 @@
       "css": ["styles.css"]
     }
   ],
+  "description": "ส่วนเสริมสำหรับค้นหาโครมเพื่อพ่อหลวง (โง่สับกะท้อนครั้งที่ ๗)",
+  "icons": {
+    "128": "assets/icon128.jpg"
+  },
   "web_accessible_resources": [
     {
       "resources": ["assets/*"],
